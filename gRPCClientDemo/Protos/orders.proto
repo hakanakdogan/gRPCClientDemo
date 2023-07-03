@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPCClientDemo";
+
+package orders;
+
+service OrderProcessing {
+    rpc GetOrder (OrderRequest)
+    returns (OrderResponse);
+}
+
+message OrderRequest {
+    int32 order_id = 1;
+}
+
+message OrderResponse {
+    Order order = 1;
+}
+
+message Order {
+    int32 order_id = 1;
+    int32 order_quantity = 2;
+    double unit_price = 3;
+    string ship_address = 4;
+    string ship_city = 5;
+    string ship_postal_code = 6;
+}
